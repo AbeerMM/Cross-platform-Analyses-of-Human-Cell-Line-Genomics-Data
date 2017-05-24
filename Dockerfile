@@ -17,6 +17,11 @@ RUN apt-get update && \
 
 USER $NB_USER
 
+
+RUN echo "c.NotebookApp.token = ''" >> jupyter_notebook_config.py    
+RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> jupyter_notebook_config.py
+RUN echo "c.NotebookApp.password_required=False" >> jupyter_notebook_config.py
+
 # R packages
 
 RUN conda config --add channels r
@@ -37,9 +42,6 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
-RUN git clone https://github.com/ipython-contrib/Ipython-notebook-extensions.git && \
-    cd Ipython-notebook-extensions && \
-    python setup.py install
 
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN jupyter contrib nbextension install --user
