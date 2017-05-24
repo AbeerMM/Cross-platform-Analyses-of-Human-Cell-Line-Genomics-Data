@@ -21,7 +21,7 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
-RUN conda install --use-local nbextensions
+RUN conda install nbextensions
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
