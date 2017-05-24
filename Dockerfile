@@ -37,8 +37,7 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
-RUN cd ~/src/git && \
-    git clone https://github.com/ipython-contrib/Ipython-notebook-extensions.git && \
+RUN git clone https://github.com/ipython-contrib/Ipython-notebook-extensions.git && \
     cd Ipython-notebook-extensions && \
     python setup.py install
 
