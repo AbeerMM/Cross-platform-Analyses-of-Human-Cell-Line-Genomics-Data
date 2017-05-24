@@ -38,7 +38,8 @@ RUN conda install --quiet --yes \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
-RUN echo "c.NotebookApp.token = u''" >> ~/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN jupyter notebook --NotebookApp.tornado_settings="{'max_body_size': 104857600, 'max_buffer_size': 104857600}"
 
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
