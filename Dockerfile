@@ -40,9 +40,6 @@ RUN conda install --quiet --yes \
 
 RUN echo "c.NotebookApp.token = u''" >> ~/jupyter_notebook_config.py
 
-
-RUN conda install -c https://conda.anaconda.org/robintw nbextensions
-RUN conda install -c conda-forge jupyter_contrib_nbextensions
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN jupyter contrib nbextension install --user
 RUN pip install matplotlib
