@@ -21,7 +21,7 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
-RUN conda install nbextensions
+RUN conda install -c conda-forge jupyter_contrib_nbextensions
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
