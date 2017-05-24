@@ -8,8 +8,6 @@ USER root
 
 RUN npm install requirejs
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN add-apt-repository -y ppa:chris-lea/node.js
-RUN apt-get -y install nodejs
 
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
@@ -32,11 +30,13 @@ RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    apt-get install -y ppa:chris-lea/node.js \
+    apt-get -y install nodejs \
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
+    
 USER $NB_USER
 
 # R packages
