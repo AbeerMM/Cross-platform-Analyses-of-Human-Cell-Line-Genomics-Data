@@ -41,7 +41,6 @@ RUN conda install --quiet --yes \
 RUN echo "c.NotebookApp.token = u''" >> ~/jupyter_notebook_config.py
 
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
-RUN jupyter contrib nbextension install --user
 RUN pip install matplotlib
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
