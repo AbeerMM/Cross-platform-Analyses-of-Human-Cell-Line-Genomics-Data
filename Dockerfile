@@ -17,7 +17,6 @@ RUN apt-get update && \
 
 USER $NB_USER
 
-RUN jupyter notebook --generate-config
 RUN echo "c.NotebookApp.token = ''" >> jupyter_notebook_config.py    
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> jupyter_notebook_config.py
 RUN echo "c.NotebookApp.password_required=False" >> jupyter_notebook_config.py
