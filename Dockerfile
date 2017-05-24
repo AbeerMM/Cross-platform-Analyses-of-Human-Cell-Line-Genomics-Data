@@ -37,7 +37,7 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
-RUN jupyter notebook --generate-config
+
 RUN echo "c.NotebookApp.token = u''" >> ~/jupyter_notebook_config.py
 
 
