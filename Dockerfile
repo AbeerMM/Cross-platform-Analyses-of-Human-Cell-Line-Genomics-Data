@@ -41,6 +41,9 @@ RUN git clone https://github.com/ipython-contrib/Ipython-notebook-extensions.git
     cd Ipython-notebook-extensions && \
     python setup.py install
 
+RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+RUN jupyter contrib nbextension install --user
+RUN pip install matplotlib
 
 RUN echo "c.NotebookApp.token = ''" >> $HOME/.jupyter/jupyter_notebook_config.py    
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
