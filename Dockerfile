@@ -14,11 +14,6 @@ RUN apt-get update && \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-    
-RUN cd git && \
-    git clone https://github.com/ipython-contrib/Ipython-notebook-extensions.git && \
-    cd Ipython-notebook-extensions && \
-    python setup.py install
 
 USER $NB_USER
 
@@ -26,6 +21,7 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
+RUN conda install --use-local nbextensions
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
