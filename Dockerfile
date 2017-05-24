@@ -44,7 +44,7 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
-
+RUN conda install -c https://conda.anaconda.org/robintw nbextensions
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN jupyter contrib nbextension install --user
 RUN pip install matplotlib
