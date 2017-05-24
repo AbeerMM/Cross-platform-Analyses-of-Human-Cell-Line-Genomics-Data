@@ -60,5 +60,7 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggdendro')" | 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggplot2')" | R --vanilla
+
 WORKDIR /home/jovyan
 ADD . /home/jovyan
