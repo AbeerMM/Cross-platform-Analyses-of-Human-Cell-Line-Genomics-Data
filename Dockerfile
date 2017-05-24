@@ -6,19 +6,18 @@ USER root
 
 # Customized using Jupyter Notebook R Stack https://github.com/jupyter/docker-stacks/tree/master/r-notebook
 
-
-
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    apt-get install -y ppa:chris-lea/node.js \
-    apt-get -y install nodejs \
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-    
-RUN npm install requirejs
+   
+RUN npm install requirejs 
+
+RUN apt-get install -y ppa:chris-lea/node.js \
+    apt-get -y install nodejs
     
 USER $NB_USER
 
