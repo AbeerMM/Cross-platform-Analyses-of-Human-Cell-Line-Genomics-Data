@@ -15,7 +15,7 @@ RUN apt-get update && \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
-RUN cd /src/git && \
+RUN cd /git && \
     git clone https://github.com/ipython-contrib/Ipython-notebook-extensions.git && \
     cd Ipython-notebook-extensions && \
     python setup.py install
