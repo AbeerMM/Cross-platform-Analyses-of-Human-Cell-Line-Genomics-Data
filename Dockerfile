@@ -37,7 +37,10 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
+RUN jupyter notebook --generate-config
 RUN echo "c.NotebookApp.token = u''" >> ~/.jupyter/jupyter_notebook_config.py
+
+
 RUN conda install -c https://conda.anaconda.org/robintw nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
