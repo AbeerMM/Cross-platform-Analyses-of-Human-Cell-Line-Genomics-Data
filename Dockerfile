@@ -39,6 +39,7 @@ RUN conda install --quiet --yes \
 
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN jupyter contrib nbextension install --user
+RUN pip install matplotlib
 
 RUN mkdir -p $HOME/.jupyter
 RUN echo "c.NotebookApp.token = ''" >> $HOME/.jupyter/jupyter_notebook_config.py    
