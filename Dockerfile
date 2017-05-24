@@ -39,6 +39,7 @@ RUN conda install --quiet --yes \
 
 
 RUN echo "c.NotebookApp.token = u''" >> ~/jupyter_notebook_config.py
+RUN jupyter notebook --NotebookApp.tornado_settings="{'max_body_size': 104857600, 'max_buffer_size': 104857600}"
 
 RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN pip install matplotlib
