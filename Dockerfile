@@ -45,9 +45,9 @@ RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/
 RUN jupyter contrib nbextension install --user
 RUN pip install matplotlib
 
-RUN echo "c.NotebookApp.token = ''" >> $HOME/.jupyter/jupyter_notebook_config.py    
-RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.password_required=False" >> $HOME/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.token = ''" >> /.jupyter/jupyter_notebook_config.py    
+RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> /.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.password_required=False" >> /.jupyter/jupyter_notebook_config.py
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('AnnotationDbi')" | R --vanilla
