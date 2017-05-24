@@ -37,10 +37,10 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
-RUN conda install -f pip3 setuptools
-RUN pip3 --no-cache-dir install -r requirements.txt
+RUN conda install -f pip setuptools
+RUN pip --no-cache-dir install -r requirements.txt
 
-RUN pip3 install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN jupyter contrib nbextension install --user
 
 RUN mkdir -p $HOME/.jupyter
