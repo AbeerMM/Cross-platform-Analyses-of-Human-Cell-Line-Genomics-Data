@@ -14,6 +14,11 @@ RUN apt-get update && \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+    
+RUN cd ~/src/git && \
+    git clone https://github.com/ipython-contrib/Ipython-notebook-extensions.git && \
+    cd Ipython-notebook-extensions && \
+    python setup.py install
 
 USER $NB_USER
 
