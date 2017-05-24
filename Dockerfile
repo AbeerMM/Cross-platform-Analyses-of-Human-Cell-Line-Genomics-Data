@@ -37,11 +37,7 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
     
-RUN mkdir $HOME/.jupyter
-RUN echo "c.NotebookApp.token = ''" >> $HOME/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.password=''" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.password_required=False" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
     
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
