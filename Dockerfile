@@ -38,7 +38,6 @@ RUN conda install --quiet --yes \
     'r-crayon=1.3*' && conda clean -tipsy
     
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
     
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('AnnotationDbi')" | R --vanilla
