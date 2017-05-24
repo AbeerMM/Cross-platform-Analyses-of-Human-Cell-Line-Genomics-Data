@@ -45,9 +45,9 @@ RUN conda install --quiet --yes \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
-RUN pip3 install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN jupyter contrib nbextension install --user
-RUN pip3 install matplotlib
+RUN pip install matplotlib
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('AnnotationDbi')" | R --vanilla
