@@ -43,7 +43,8 @@ RUN jupyter contrib nbextension install --user
 RUN mkdir -p $HOME/.jupyter
 RUN echo "c.NotebookApp.token = ''" >> $HOME/.jupyter/jupyter_notebook_config.py    
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
-    
+RUN echo "c.NotebookApp.password_required=False" >> $HOME/.jupyter/jupyter_notebook_config.py
+
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('AnnotationDbi')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('samr')" | R --vanilla
