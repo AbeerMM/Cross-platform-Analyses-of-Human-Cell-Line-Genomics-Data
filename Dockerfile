@@ -21,7 +21,6 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
-RUN conda install -c conda-forge jupyter_contrib_nbextensions
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
@@ -37,6 +36,9 @@ RUN conda install --quiet --yes \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
+
+RUN pip3 install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+RUN jupyter contrib nbextension install --user
 
 RUN mkdir -p $HOME/.jupyter
 RUN echo "c.NotebookApp.token = ''" >> $HOME/.jupyter/jupyter_notebook_config.py    
