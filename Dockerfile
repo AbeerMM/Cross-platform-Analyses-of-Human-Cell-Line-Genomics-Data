@@ -17,10 +17,12 @@ RUN apt-get update && \
 
 USER $NB_USER
 
-
+RUN jupyter notebook --generate-config
 RUN echo "c.NotebookApp.token = ''" >> jupyter_notebook_config.py    
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> jupyter_notebook_config.py
 RUN echo "c.NotebookApp.password_required=False" >> jupyter_notebook_config.py
+
+RUN find $HOME/notebooks -name \'*.ipynb\' -exec jupyter trust {} \\;\n\n
 
 # R packages
 
@@ -43,9 +45,9 @@ RUN conda install --quiet --yes \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
-RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+RUN pip3 install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
 RUN jupyter contrib nbextension install --user
-RUN pip install matplotlib
+RUN pip3 install matplotlib
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('AnnotationDbi')" | R --vanilla
