@@ -6,25 +6,6 @@ USER root
 
 # Customized using Jupyter Notebook R Stack https://github.com/jupyter/docker-stacks/tree/master/r-notebook
 
-RUN npm install requirejs
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-
-# use changes to package.json to force Docker not to use the cache
-# when we change our application's nodejs dependencies:
-COPY package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
-
-# From here we load our application's code in, therefore the previous docker
-# "layer" thats been cached will be used if possible
-WORKDIR /opt/app
-COPY . /opt/app
-EXPOSE 3000
-
-CMD ["node", "server.js"]
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
 
 # R pre-requisites
@@ -36,6 +17,8 @@ RUN apt-get update && \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+    
+RUN npm install requirejs
     
 USER $NB_USER
 
