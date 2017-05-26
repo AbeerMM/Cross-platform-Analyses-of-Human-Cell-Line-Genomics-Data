@@ -1,7 +1,7 @@
 FROM jupyter/r-notebook:599db13f9123
 
 MAINTAINER Reem Almugbel <reem2@uw.edu>
-
+LABEL authors="Reem Almugbel, Abeer Almutairy"
 USER root
 
 # Customized using Jupyter Notebook R Stack https://github.com/jupyter/docker-stacks/tree/master/r-notebook
