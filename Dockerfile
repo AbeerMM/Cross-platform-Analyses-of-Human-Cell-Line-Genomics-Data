@@ -24,7 +24,7 @@ USER $NB_USER
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
-RUN conda install -c bioconda r-corpcor=1.6.8
+RUN conda install -c bioconda r-corpcor
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
