@@ -41,8 +41,8 @@ RUN conda install --quiet --yes \
 RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
 
-RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
-RUN pip install matplotlib
+RUN pip3 install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+RUN pip3 install matplotlib
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('AnnotationDbi')" | R --vanilla
