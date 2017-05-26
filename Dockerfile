@@ -10,7 +10,7 @@ USER root
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    pip3 install requests && \
+    pip install requests && \
     apt-get remove -y python-pip curl && \
     fonts-dejavu \
     gfortran \
