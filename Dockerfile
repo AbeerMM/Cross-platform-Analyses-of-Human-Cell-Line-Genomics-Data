@@ -16,7 +16,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
  
-RUN apt-get install -y python-pip
+RUN apt-get install -y pip
 # Install app dependencies
 RUN pip install --upgrade pip
 RUN pip install Flask
