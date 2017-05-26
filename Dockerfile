@@ -11,6 +11,7 @@ USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fonts-dejavu \
+    apt-get install r-cran-corpcor \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -36,7 +37,6 @@ RUN conda install --quiet --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
-    'r-corpcor=1.6.8' \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
