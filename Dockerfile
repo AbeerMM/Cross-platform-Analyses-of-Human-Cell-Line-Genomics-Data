@@ -10,7 +10,7 @@ USER root
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    corpcor \
+    r-corpcor \
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
