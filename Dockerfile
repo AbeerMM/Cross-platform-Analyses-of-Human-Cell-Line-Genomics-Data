@@ -66,6 +66,7 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('corpcor')" | R
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('RCurl')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('bitops')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" | R --vanilla
 
 WORKDIR /home/jovyan
 ADD . /home/jovyan
