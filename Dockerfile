@@ -24,7 +24,6 @@ USER $NB_USER
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
-RUN conda install -c bioconda r-corpcor
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
@@ -62,6 +61,7 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" |
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggplot2')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('corpcor')" | R --vanilla
 
 WORKDIR /home/jovyan
 ADD . /home/jovyan
