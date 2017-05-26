@@ -15,8 +15,7 @@ RUN apt-get update && \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
-RUN apt-get install -y \
-    r-cran-corpcor 
+RUN apt-get install r-cran-corpcor 
 
 USER $NB_USER
 
