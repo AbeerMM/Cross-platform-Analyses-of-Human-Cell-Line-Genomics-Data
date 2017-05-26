@@ -36,7 +36,7 @@ RUN conda install --quiet --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
-    'r-corpcor' \
+    'r-corpcor=1.6.8' \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
