@@ -22,6 +22,7 @@ USER $NB_USER
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
+RUN conda install r-corpcor
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
@@ -45,12 +46,6 @@ RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_no
 RUN pip install --upgrade pip
 RUN pip install matplotlib
 
-RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('limma')" | R --vanilla
-RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('AnnotationDbi')" | R --vanilla
-RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('samr')" | R --vanilla
-RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('hugene20stprobeset.db')" | R --vanilla
-RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('hgu133plus2.db')" | R --vanilla
-RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('corpcor')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('cluster')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('stringr')" | R --vanilla
