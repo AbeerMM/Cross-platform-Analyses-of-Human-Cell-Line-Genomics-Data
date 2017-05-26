@@ -10,10 +10,15 @@ USER root
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    apt-get -y install nodejs\
+    apt-get -y install pip\
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+ 
+
 
 USER $NB_USER
 
