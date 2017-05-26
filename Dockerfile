@@ -14,11 +14,7 @@ RUN apt-get update && \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-    
-RUN apt-get update && apt-get build-dep -y \
-    r-cran-rgl 
-    
-    
+   
 USER $NB_USER
 
 # R packages
