@@ -10,8 +10,6 @@ USER root
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    apt-get build-dep rgl \
-    
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
@@ -19,6 +17,7 @@ RUN apt-get update && \
     
 RUN apt-get update && apt-get build-dep -y \
     r-cran-rgl 
+    
     
 USER $NB_USER
 
