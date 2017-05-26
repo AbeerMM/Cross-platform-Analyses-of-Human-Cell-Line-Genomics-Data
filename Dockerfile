@@ -15,7 +15,7 @@ RUN apt-get update && \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
-RUN apt-get install r-cran-corpcor 
+
 
 USER $NB_USER
 
@@ -24,6 +24,7 @@ USER $NB_USER
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
+RUN conda install -c bioconda r-corpcor=1.6.8
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
