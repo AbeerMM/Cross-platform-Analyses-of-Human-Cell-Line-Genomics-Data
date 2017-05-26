@@ -14,6 +14,9 @@ RUN apt-get update && \
     gfortran \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+    
+RUN apt-get install -y \
+    r-cran-corpcor 
 
 USER $NB_USER
 
@@ -36,7 +39,6 @@ RUN conda install --quiet --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
-    'r-cran' \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
@@ -60,7 +62,6 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" |
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggplot2')" | R --vanilla
-
 
 WORKDIR /home/jovyan
 ADD . /home/jovyan
