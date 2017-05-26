@@ -15,17 +15,13 @@ RUN apt-get update && \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
- 
-# Install app dependencies
-RUN pip install --upgrade pip
-RUN pip install Flask
-
 USER $NB_USER
 
 # R packages
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
+RUN conda install -c conda-forge jupyter_contrib_nbextensions
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
