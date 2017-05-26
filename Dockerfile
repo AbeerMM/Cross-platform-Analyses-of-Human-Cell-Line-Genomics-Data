@@ -10,6 +10,7 @@ USER root
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    apt-get install r-cran-corpcor \
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
@@ -36,7 +37,6 @@ RUN conda install --quiet --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
-    'r-corpcor' \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
@@ -60,6 +60,7 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" |
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggplot2')" | R --vanilla
+
 
 WORKDIR /home/jovyan
 ADD . /home/jovyan
