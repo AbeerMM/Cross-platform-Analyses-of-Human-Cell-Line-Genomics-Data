@@ -15,7 +15,9 @@ RUN apt-get update && \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
-
+RUN apt-get install xorg 
+RUN apt-get install libx11-dev 
+RUN apt-get install libglu1-mesa-dev 
 
 USER $NB_USER
 
@@ -55,6 +57,9 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('stats')" | R -
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('mclust')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('bios2mds')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('rgl')" | R --vanilla
+
+
+
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggdendro')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" | R --vanilla
