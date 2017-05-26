@@ -10,7 +10,6 @@ USER root
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    r-cran-corpcor \
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
@@ -37,6 +36,7 @@ RUN conda install --quiet --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
+    'r-cran'
     'r-crayon=1.3*' && conda clean -tipsy
 
 
