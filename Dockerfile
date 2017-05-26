@@ -55,7 +55,6 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('build-dep')" |
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('r-cran-rgl')" | R --vanilla
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('rgl')" | R --vanilla
-RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggdendro')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
@@ -67,6 +66,7 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('corpcor')" | R
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('bitops')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
 
 
 WORKDIR /home/jovyan
