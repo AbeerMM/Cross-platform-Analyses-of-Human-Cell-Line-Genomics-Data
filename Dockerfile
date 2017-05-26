@@ -10,7 +10,6 @@ USER root
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    r-corpcor \
     fonts-dejavu \
     gfortran \
     gcc && apt-get clean && \
@@ -23,7 +22,6 @@ USER $NB_USER
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
-RUN conda install r-corpcor
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
@@ -38,6 +36,7 @@ RUN conda install --quiet --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
+    'r-corpcor' \
     'r-crayon=1.3*' && conda clean -tipsy
 
 
