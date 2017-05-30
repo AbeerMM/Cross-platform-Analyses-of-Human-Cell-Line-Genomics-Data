@@ -26,7 +26,6 @@ RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
 RUN jupyter nbextension enable dragdrop/main
 RUN jupyter nbextension enable highlighter/highlighter
-RUN jupyter nbextension enable nbextensions_configurator/tree_tab/main
 RUN jupyter nbextension enable printview/main
 RUN jupyter nbextension enable runtools/main
 RUN jupyter nbextension enable codefolding/main
