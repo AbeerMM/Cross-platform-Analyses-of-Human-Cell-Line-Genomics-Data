@@ -22,6 +22,29 @@ USER $NB_USER
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
+RUN jupyter nbextension enable toc2/main
+RUN jupyter nbextension enable collapsible_headings/main
+RUN jupyter nbextension enable dragdrop/main
+RUN jupyter nbextension enable highlighter/highlighter
+RUN jupyter nbextension enable nbextensions_configurator/tree_tab/main
+RUN jupyter nbextension enable printview/main
+RUN jupyter nbextension enable runtools/main
+RUN jupyter nbextension enable codefolding/main
+RUN jupyter nbextension enable comment-uncomment/main
+RUN jupyter nbextension enable equation-numbering/main
+RUN jupyter nbextension enable freeze/main
+RUN jupyter nbextension enable toggle_all_line_numbers/main
+RUN jupyter nbextension enable spellchecker/main
+RUN jupyter nbextension enable codefolding/edit
+RUN jupyter nbextension enable execute_time/ExecuteTime
+RUN jupyter nbextension enable gist_it/main
+RUN jupyter nbextension enable move_selected_cells/main
+RUN jupyter nbextension enable skip-traceback/main
+RUN jupyter nbextension enable highlight_selected_word/main
+RUN jupyter nbextension enable search-replace/main
+RUN jupyter nbextension enable snippets/main
+RUN jupyter nbextension enable varInspector/main
+
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
