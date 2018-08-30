@@ -60,9 +60,6 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
-RUN R CMD BUILD sparcl_1.0.3.tar.gz
-RUN R CMD INSTALL sparcl_1.0.3.tar.gz
-
 RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
 
